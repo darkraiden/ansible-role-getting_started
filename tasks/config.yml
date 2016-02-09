@@ -1,0 +1,21 @@
+---
+- name: Install packages
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    state: present
+  with_items: packages
+  when: packages is defined
+
+- name: Disable Apache's default vhost
+  command: a2dissite 000-default
+  when: dissite_default == true
+
+- name: Make sure that document root exists
+  file:
+    path: "{{ site.document_root }}"
+    state: directory
+    owner: "{{ site.owner }}"
+    group: "{{ site.group }}"
+    mode: "{{ site.mode }}"
+  when: site is defined

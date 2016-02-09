@@ -1,0 +1,26 @@
+---
+- name: Add apache vhost
+  template:
+    src: ../templates/vhost.conf.j2
+    dest: /etc/apache2/sites-available/{{site.name}}.conf
+    owner: root
+    group: root
+    mode: 644
+  when: site is defined
+
+- name: Add our index.html
+  template:
+    src: ../templates/index.html.j2
+    dest: {{ site.document_root }}/index.html
+    owner: "{{ site.owner }}"
+    group: "{{ site.group }}"
+    mode: 0664
+  when: site is defined
+
+- name: Reload Apache2
+  service:
+    name: apache2
+    state: reloaded
+    enabled: yes
+
+
