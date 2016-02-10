@@ -13,3 +13,5 @@ site:
     group: www-data
     mode: 2775    
     message: "This Is My First Role"
+    port: 80
+    email: test@mycompany.com
