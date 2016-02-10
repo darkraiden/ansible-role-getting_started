@@ -1,0 +1,9 @@
+---
+author: Davide Di Mauro
+description: Getting Started With Ansible
+platforms:
+- name: Ubuntu
+  versions:
+  - trusty
+categories:
+- Webserver
