@@ -12,9 +12,15 @@
   template:
     src: ../templates/index.html.j2
     dest: {{ site.document_root }}/index.html
-    owner: "{{ site.owner }}"
-    group: "{{ site.group }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
     mode: 0664
+  with_items: site
+  when: site is defined
+
+- name: Enable your site
+  command: a2ensite "{{ item.name }}"
+  with_items: site
   when: site is defined
 
 - name: Reload Apache2
