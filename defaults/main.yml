@@ -1,0 +1,14 @@
+---
+
+packages:
+  - curl
+  - git
+  - vim
+  - apache2
+
+site:
+  - name: test
+    document_root: /var/wwww/test
+    owner: www-data
+    group: www-data
+    mode: 2775    
