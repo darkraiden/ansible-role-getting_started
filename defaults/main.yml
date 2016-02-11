@@ -1,5 +1,7 @@
 ---
 
+dissite_default: true
+
 packages:
   - curl
   - git
