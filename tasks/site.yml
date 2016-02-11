@@ -2,16 +2,17 @@
 - name: Add apache vhost
   template:
     src: ../templates/vhost.conf.j2
-    dest: /etc/apache2/sites-available/{{site.name}}.conf
+    dest: "/etc/apache2/sites-available/{{item.name}}.conf"
     owner: root
     group: root
     mode: 644
+  with_items: site
   when: site is defined
 
 - name: Add our index.html
   template:
     src: ../templates/index.html.j2
-    dest: {{ site.document_root }}/index.html
+    dest: "{{ item.document_root }}/index.html"
     owner: "{{ item.owner }}"
     group: "{{ item.group }}"
     mode: 0664
