@@ -10,7 +10,7 @@ packages:
 
 site:
   - name: test
-    document_root: /var/wwww/test
+    document_root: /var/www/test
     owner: www-data
     group: www-data
     mode: 2775    
