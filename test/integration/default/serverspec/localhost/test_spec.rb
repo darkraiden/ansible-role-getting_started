@@ -16,3 +16,12 @@ end
 describe port(80) do
   it { should be_listening }
 end
+describe port(8080) do
+  it { should_not be_listening }
+end
+
+#Check index.html content
+describe file("/var/www/test/index.html") do
+  it { should contain("test") }
+  it { should contain("<h1>This Is My First Role</h1>") }
+end
