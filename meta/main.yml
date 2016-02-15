@@ -1,3 +1,6 @@
 ---
-dependencies:[]
-version: 0.1.0
+galaxy_info:
+  author: Davide Di Mauro
+  description: Ansible Getting Started role
+  dependencies:
+  version: 0.1.0

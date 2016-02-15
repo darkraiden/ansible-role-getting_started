@@ -7,7 +7,7 @@ provisioner:
   hosts: test-kitchen
   require_ansible_repo: true
   ansible_verbose: true
-  ansible_version: 1.6.2-1.el6
+  ansible_version: latest
   require_ruby_for_busser: true
   extra_vars:
     env: local
